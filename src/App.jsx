@@ -24,7 +24,8 @@ export default function App() {
     setErrorMessage('');
     try {
       setIsLoading(true)
-      const response = await fetch('http://localhost:5000/api/tts', {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+      const response = await fetch(`${baseUrl}/api/tts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
